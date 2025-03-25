@@ -32,13 +32,16 @@ struct ContentView: View {
                 Text("Calcular")
             }
             
-           if !idadecachorro.isEmpty {
-               Text("Idade em anos caninos: \(idadecachorro)")
-               .font(.headLine)
-               .padding()
+            Button(action:clear) {
+                text("limpar")
+            }
             
+            if !idadecachorro.isEmpty {
+                Text("Idade em anos caninos: \(idadecachorro)")
+                    .font(.headLine)
+                    .padding()
+            }
         }
-        .padding()
     }
 func Calcular () {
  if let age = Int(idadehumana) {
@@ -46,10 +49,13 @@ func Calcular () {
      idadecachorro = "\(result) anos"
  } else {
      idadecachorro = "Digite um número válido"
-}     
-}   
-}
+        }
+    }
 
+func clear () {
+    idadecachorro = 0
+    idadehumana = 0
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
