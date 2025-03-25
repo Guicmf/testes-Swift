@@ -32,16 +32,23 @@ struct ContentView: View {
                 Text("Calcular")
             }
             
-            Text($idadecachorro)
+           if !idadecachorro.isEmpty {
+               Text("Idade em anos caninos: \(idadecachorro)")
+               .font(.headLine)
+               .padding()
             
         }
         .padding()
     }
 func Calcular () {
-    if{Int(idadehumana) > 0
-        $idadecachorro = Int($idadehumana) * 7}
-    else  {}
-    }
+ if let age = Int(idadehumana) {
+     let result = age * 7
+     idadecachorro = "\(result) anos"
+ } else {
+     idadecachorro = "Digite um número válido"
+}     
+}   
+}
 
 
 struct ContentView_Previews: PreviewProvider {
